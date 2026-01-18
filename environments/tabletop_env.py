@@ -74,6 +74,10 @@ class TabletopEnv:
         # Camera parameters
         self._setup_camera()
         
+        
+        # Connection status
+        self.connected = True
+        
         # Initialize environment
         self.reset()
         
@@ -421,11 +425,10 @@ class TabletopEnv:
     
     def close(self):
         """Close the PyBullet connection."""
-        p.disconnect(physicsClientId=self.physics_client)
+        if self.connected:
+            p.disconnect(physicsClientId=self.physics_client)
+            self.connected = False
         
     def __del__(self):
         """Cleanup on deletion."""
-        try:
-            self.close()
-        except:
-            pass
+        self.close()

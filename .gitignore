@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+*.h5
+*.json
+data_test/
+logs_test/
+checkpoints_test/
+plots/

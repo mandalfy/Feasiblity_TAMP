@@ -108,7 +108,7 @@ def print_evaluation_report(metrics: Dict[str, float]):
     print("="*50)
     
     # Confusion matrix
-    cm = confusion_matrix(metrics['_labels'], metrics['_preds'])
+    cm = confusion_matrix(metrics['_labels'], metrics['_preds'], labels=[0, 1])
     print("\nConfusion Matrix:")
     print(f"  True Neg (Correct rejection): {cm[0,0]}")
     print(f"  False Pos (False alarm):      {cm[0,1]}")
@@ -146,7 +146,7 @@ def plot_evaluation(
     
     # Confusion Matrix
     ax = axes[0, 1]
-    cm = confusion_matrix(metrics['_labels'], metrics['_preds'])
+    cm = confusion_matrix(metrics['_labels'], metrics['_preds'], labels=[0, 1])
     im = ax.imshow(cm, cmap='Blues')
     ax.set_xticks([0, 1])
     ax.set_yticks([0, 1])

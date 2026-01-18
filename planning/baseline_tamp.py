@@ -5,6 +5,7 @@ Uses traditional motion planning for all feasibility checks.
 """
 
 import numpy as np
+import pybullet as p
 from typing import List, Optional, Tuple, Dict
 from dataclasses import dataclass
 from enum import Enum
@@ -167,7 +168,10 @@ class BaselineTAMPPlanner:
         }
         
         for i, obj_id in enumerate(self.env.object_ids):
-            pos, orn = self.env.physics_client.getBasePositionAndOrientation(obj_id)
+            pos, orn = p.getBasePositionAndOrientation(
+                obj_id,
+                physicsClientId=self.env.physics_client
+            )
             state['objects'][obj_id] = {
                 'position': np.array(pos),
                 'on_table': pos[2] < 0.7  # Rough check

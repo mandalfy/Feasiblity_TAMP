@@ -8,6 +8,7 @@ torchvision>=0.15.0
 # Scientific Computing
 numpy>=1.24.0
 scipy>=1.10.0
+scikit-learn>=1.2.0
 
 # Data Storage
 h5py>=3.8.0

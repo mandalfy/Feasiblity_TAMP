@@ -6,6 +6,8 @@ A machine learning approach to accelerate Task and Motion Planning by predicting
 
 Classical TAMP is computationally expensive because it must constantly check if high-level actions are geometrically feasible. This project trains a neural network to predict feasibility, enabling faster planning through intelligent search pruning.
 
+
+
 ## Quick Start
 
 ```bash
