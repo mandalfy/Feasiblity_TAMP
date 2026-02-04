@@ -1,0 +1,7 @@
+__pycache__
+*.pyc
+.git
+.venv
+logs_test
+checkpoints_test
+data_test
